@@ -1,0 +1,301 @@
+/* -------------------main----------------------- */
+*{
+    font-family: monospace;
+}
+
+body{
+    margin: 1rem;
+    padding: 2rem 0;
+    min-height: 100vh;
+    position: relative;
+    background-color: #0B0C10ff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: url('./assets/space.png');
+}
+
+
+#app {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+/* ===============================nasa container style======================= */
+
+.nasa{
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+}
+
+
+#app img,
+#app iframe,
+#app video {
+  display: block;
+  max-width: 90%;
+  height: auto;
+  margin: 1rem auto 0;
+  width: 450px;
+  height: 410px;
+  padding-top: 0;
+  border-radius: 8px;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  text-decoration: underline;
+  text-align: center;
+  color: rgb(198, 187, 198);
+  margin: 0;
+}
+
+p {
+font-family: 'Black Ops One', sans-serif;
+color: #F5F7FA;
+text-align: justify;
+font-size: small;
+padding-top: 20px;
+padding-bottom: 0;
+margin: 0;
+line-height: 1.5;
+}
+
+
+/* ----------------pmodoro clock------------------------ */
+.container{
+    margin: 0 auto;
+    max-width: 330px;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    font-family: monospace;
+    background: #1e212eff;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .title{
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #C5C6C7;
+}
+
+.container .timer{
+    font-size: 72px;
+    color: #C5C6C7;
+    margin: 0;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.container .button{
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    color: white;
+    background: transparent;
+    border: 1px solid #F5F7FA;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: opacity .03s ease-in-out;
+}
+.container button:hover{
+    opacity: .7;
+    background-color: #C5C6C7;
+    color: #1F2833;
+}
+
+/* .container #Start{
+    background-color: rgb(40, 41, 66);
+}
+.container #Stop{
+    background-color: rgb(87, 68, 68);
+}
+.container #Reset{
+    background-color: grey;
+} */
+
+@media (max-width: 600px){
+    body::before,
+    body::after{
+        display: none;
+    }
+}
+
+.player-card {
+    width: 90%;
+    max-width: 360px;
+    height: 280px;
+    min-height: 220px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 24px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.song-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.song-name {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.artist-name {
+    margin: 0 0 20px 0;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.btn {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.playline {
+    width: 100%;
+    height: 4px;
+    display: block;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    accent-color: #ffffff;
+    cursor: pointer;
+    margin-bottom: 24px;
+}
+
+/* +++++++++++++++++++++++++++grid+++++++++++++++++++++++++++> */
+
+.grid-parent{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch;
+    justify-items: center;
+}
+
+#box1 {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#box2{
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#box3{
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* 
+==========================Footer============================= */
+
+footer{
+    color: #C5C6C7;
+    background-color: rgba(205, 209, 216, 0.07);
+    border-radius: 3px;
+    box-shadow: 20px;
+    width: 100%;
+    grid-column: 1 / -1;
+    justify-content: center;
+    
+}
+
+footer p{
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
