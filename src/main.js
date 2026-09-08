@@ -1,5 +1,7 @@
 import './style.css';
 import soundUrl from './assets/sound.mp3';
+import sound1Url from './assets/sound1.mp3';
+import sound2Url from './assets/sound2.mp3';
 const API_KEY = import.meta.env.VITE_NASA_API_KEY;
 document.querySelector("#app").innerHTML = "<p>loading...</p>";
 
@@ -44,8 +46,8 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
     <div class="player-card" id="box3">
         
         <div class="song-info">
-            <h2 class="song-name" id="songTitle">Frost Moon OST</h2>
-            <p class="artist-name" id="artistTitle">Hoyo MIX</p>
+            <h2 class="song-name" id="songTitle">Pomodoro Player</h2>
+            <p class="artist-name" id="artistTitle">Unknown Song</p>
         </div>
 
         <input type="range" class="playline" id="playline" value="0" min="0" max="100">
@@ -115,6 +117,8 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const audio = new Audio(soundUrl);
+    const songs = [soundUrl, sound1Url, sound2Url];
+    let currentSongIndex = 0;
 
     playBtn.addEventListener('click', () => {
       if (audio.paused) {
@@ -149,8 +153,17 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
       playBtn.innerText = '⏸';
     }
 
+    function skipToNextSong() {
+      currentSongIndex = (currentSongIndex + 1) % songs.length;
+      audio.src = songs[currentSongIndex];
+      audio.currentTime = 0;
+      audio.play();
+      playBtn.innerText = '⏸';
+      playline.value = 0;
+    }
+
     prevBtn.addEventListener('click', restartSong);
-    nextBtn.addEventListener('click', restartSong);
+    nextBtn.addEventListener('click', skipToNextSong);
   })
   .catch(err => {
     document.querySelector("#app").innerHTML = `<p>Error: ${err.message}</p>`;
