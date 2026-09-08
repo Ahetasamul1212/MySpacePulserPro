@@ -32,6 +32,9 @@ Make sure you have installed:
 
 ```bash
 git clone https://github.com/Ahetasamul1212/MySpacePulserPro.git
-cd MySpacePulserPro
+cd MySpacePulserPro```
+
+**npm install**
+_VITE_NASA_API_KEY=YOUR_NASA_API_KEY_
 
 
