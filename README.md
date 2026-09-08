@@ -17,3 +17,21 @@ _ Tutorial List:_
 _ASSET link_:
 1) Music player link -->https://www.youtube.com/watch?v=EZi35xcNRzQ
 2) Background Image==> Genshin FrostMoon Background pics
+
+**Run Locally**
+
+### Prerequisites
+
+Make sure you have installed:
+
+- [Node.js](https://nodejs.org/) (LTS recommended)
+- npm (comes with Node.js)
+- Git
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Ahetasamul1212/MySpacePulserPro.git
+cd MySpacePulserPro
+
+
