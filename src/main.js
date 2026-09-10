@@ -46,8 +46,8 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
     <div class="player-card" id="box3">
         
         <div class="song-info">
-            <h2 class="song-name" id="songTitle">FrostMoon</h2>
-            <p class="artist-name" id="artistTitle">Unknown Song</p>
+            <h2 class="song-name" id="songTitle">Frost Moon Ost</h2>
+            <p class="artist-name" id="artistTitle">Hoyo Mix</p>
         </div>
 
         <input type="range" class="playline" id="playline" value="0" min="0" max="100">
