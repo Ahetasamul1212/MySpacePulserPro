@@ -46,7 +46,7 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
     <div class="player-card" id="box3">
         
         <div class="song-info">
-            <h2 class="song-name" id="songTitle">Pomodoro Player</h2>
+            <h2 class="song-name" id="songTitle">FrostMoon</h2>
             <p class="artist-name" id="artistTitle">Unknown Song</p>
         </div>
 
@@ -117,8 +117,23 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const audio = new Audio(soundUrl);
-    const songs = [soundUrl, sound1Url, sound2Url];
+    const songs = [
+      { url: soundUrl, title: 'Frost Moon Ost', artist: 'HoyoMIX' },
+      { url: sound1Url, title: 'Moonlight Drift', artist: 'Space Echoes' },
+      { url: sound2Url, title: 'Deep Space Galaxy', artist: 'Countdown Studio' }
+    ];
     let currentSongIndex = 0;
+    const songTitle = document.getElementById('songTitle');
+    const artistTitle = document.getElementById('artistTitle');
+
+    function loadSong() {
+      const song = songs[currentSongIndex];
+      audio.src = song.url;
+      songTitle.textContent = song.title;
+      artistTitle.textContent = song.artist;
+      audio.currentTime = 0;
+      playline.value = 0;
+    }
 
     playBtn.addEventListener('click', () => {
       if (audio.paused) {
@@ -137,8 +152,7 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
     });
 
     audio.addEventListener('ended', () => {
-      playBtn.innerText = '▶';
-      playline.value = 0;
+      skipToNextSong();
     });
 
     playline.addEventListener('input', () => {
@@ -147,22 +161,19 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`)
       }
     });
 
-    function restartSong() {
-      audio.currentTime = 0;
-      audio.play();
-      playBtn.innerText = '⏸';
-    }
-
     function skipToNextSong() {
       currentSongIndex = (currentSongIndex + 1) % songs.length;
-      audio.src = songs[currentSongIndex];
-      audio.currentTime = 0;
+      loadSong();
       audio.play();
       playBtn.innerText = '⏸';
-      playline.value = 0;
     }
 
-    prevBtn.addEventListener('click', restartSong);
+    prevBtn.addEventListener('click', () => {
+      currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+      loadSong();
+      audio.play();
+      playBtn.innerText = '⏸';
+    });
     nextBtn.addEventListener('click', skipToNextSong);
   })
   .catch(err => {
